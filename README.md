@@ -1,60 +1,32 @@
 # Ascii-Art
-Автор: Толстогузов Артем
+A program to turn images into ASCII-art. It is created by printing characters to your terminal so as to recreate the contours of a source image.
 
+## Usage
+```
+main.py [-h] [-s width height] [-p PALETTE] [-i] [--interactive] image
+```
+- positional arguments:
+  * `image`
 
-## Описание
-Данное приложение, используя различные цветовые преобразования, конвертирует изображение в Ascii-Art.
+- optional arguments:
+  * `-h, --help` : how this help message and exit
+  * `-s width height, --size width height` : output image size (in characters)
+  * `-p PALETTE, --palette PALETTE` : palette file
+  * `-i, --inverse` : invert palette (default: white characters on black)
+  * `--interactive` : interactive view of the result
 
+- interactive view commands:
+    * Scroll: arrows
+    * Zoom: `+`/ `-`
+    * Exit: `Q`
 
-## Состав
-* Скрипт просмотра результата: `main.py`
-* Скрипт преобразования изображения в Ascii-art: `convert_to_ascii.py`
-* Скрипт предобработки изображения: `convert_to_binary.py`
-* Скрипт составления палитр для различных шрифтов: `convert_to_palette.py`
-* Шрифты: `fonts/`
-* Палитры: `palettes/`
-* Тесты: `tests/`
+## Сreating palettes
+```
+convert_to_palette.py [-h] fonts_dir [palettes_dir]
+```
+- positional arguments:
+  * `fonts_dir` : font file or fonts directory
+  * `palettes_dir` : palette directory
 
-
-## Скрипт просмотра результата
-Первым агруметом передается путь до изображения.
-
-Параметры запуска:
--s: размер исходного изображения в символах(для корректного отображения рекомендуется использовать соотношение ширины к высоте 2:1)
--p: файл палитры(по умолчанию - UbuntuMono.plt)
--i: инверсия палитры(по умолчанию - белые символы на черном фоне)
---interactive: интерактивный режим
-
-Команды интерактивного режима:
-* Скролл: стрелки на клавиатуре
-* Зум: клавиши + и -
-* Выход: клавиша Q
-
-Пример запуска: `main.py example.jpg -p consolas.plt -s 40 20 -i`
-
-Справка по командам: -h
-
-
-## Скрипт преобразования изображения
-1)Обработка изображения с помощью `convert_to_binary.py`
-2)Разбиение изображения на участки, их анализ и сопоставление им определенного, наиболее подходящего символа из палитры
-3)Возврат результата в виде списка строк
-
-
-## Скрипт предобработки изображения
-1)Перевод изображения в палитру "оттенков серого"
-2)Преобразования гистрограммы(повышение контраста)
-3)Увелечение контрастности
-4)Перевод в бинарное изображение
-
-
-## Скрипт составления палитр
-1)Составление палитры для указанных шрифтов, путем анализа каждого символа
-2)Сохранение палитры в сокращенном формате
-
-Первым аргументом передается путь до директории с шрифтами или путь до одного шрифта.
-Вторым аргументом передается путь до директории с палитрами(необязательный аргумент, при передаче одного шрифта)
-
-Пример запуска: `convert_to_palette.py fonts palettes`
-
-Справка по командам: -h
+- optional arguments:
+  * `-h, --help` : how this help message and exit

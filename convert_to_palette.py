@@ -47,11 +47,11 @@ def create_palettes(fonts_dir, palettes_dir):
 
 def get_args():
     arg_parser = argparse.ArgumentParser(
-        description='Формирование палитры шрифта')
+        description='Сreate palette')
     arg_parser.add_argument('fonts_dir', type=str,
-                            help='Файл шрифта или католог со шрифтами')
+                            help='font file or fonts directory')
     arg_parser.add_argument('palettes_dir', nargs='?',
-                            type=str, help='Каталог палитр')
+                            type=str, help='palette directory')
     return arg_parser.parse_args()
 
 

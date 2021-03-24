@@ -85,19 +85,18 @@ class Display:
 
 def get_args():
     arg_parser = argparse.ArgumentParser(
-        description='Конвертирование цветного изображения в ASCII-art')
+        description='Convert image to ASCII-art')
     arg_parser.add_argument('image', type=argparse.FileType(),
-                            help='Изображение')
+                            help='image')
     arg_parser.add_argument('-s', '--size', type=int, nargs=2, action='store',
                             metavar=('width', 'height'),
-                            help='Размер выходного изображения(в символах)')
-    arg_parser.add_argument('-p', '--palette', type=str, help='Файл палитры',
+                            help='output image size (in characters)')
+    arg_parser.add_argument('-p', '--palette', type=str, help='palette file',
                             default='palettes/UbuntuMono.plt')
     arg_parser.add_argument('-i', '--inverse', action='store_true',
-                            help='Инверсия палитры(по умолчанию: белые символы'
-                                 ' на черном фоне)')
+                            help='invert palette (default: white characters on black)')
     arg_parser.add_argument('--interactive', action='store_true',
-                            help='Интерактивный просмотр результата')
+                            help='live view of the result')
     return arg_parser.parse_args()
 
 
